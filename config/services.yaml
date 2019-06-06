@@ -8,7 +8,7 @@ parameters:
 services:
     # default configuration for services in *this* file
     _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
+        autowire: false      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         public: false       # Allows optimizing the container by removing unused services; this also means
                             # fetching services directly from the container via $container->get() won't work.
@@ -30,13 +30,14 @@ services:
     # please note that last definitions always *replace* previous ones
 
     app.news_repository:
-        class: App\Entity\Repository\NewsRecordRepository
+        class: Doctrine\ORM\EntityRepository
         factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
             - 'App\Entity\NewsRecord'
 
     app.news_controller:
-        class: App\NewsController
+        class: App\Controller\NewsController
         public: true
         arguments:
+            - '@templating'
             - '@app.news_repository'

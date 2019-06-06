@@ -33,10 +33,10 @@ class NewsController
      * @param EngineInterface  $templateEngine Template engine
      * @param EntityRepository $newsRepository News repository
      */
-    public function __construct(/*EngineInterface $templateEngine, EntityRepository $newsRepository*/)
+    public function __construct(EngineInterface $templateEngine, EntityRepository $newsRepository)
     {
-        //$this->templateEngine = $templateEngine;
-        //$this->newsRepository = $newsRepository;
+        $this->templateEngine = $templateEngine;
+        $this->newsRepository = $newsRepository;
     }
 
     /**
@@ -47,7 +47,7 @@ class NewsController
     public function list(): Response
     {
         $news    = $this->newsRepository->findAll();
-        $content = $this->templateEngine->render('@App/News/list.html.twig', ['news' => $news]);
+        $content = $this->templateEngine->render('News/list.html.twig', ['news' => $news]);
 
         $response = new Response($content);
 

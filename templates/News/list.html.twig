@@ -1,0 +1,10 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for newsRecord in news %}
+        {% include '::News/_item.html.twig' with {'newsRecord': newsRecord} only %}
+    {% else %}
+        No news records.
+    {% endfor %}
+{% endblock %}

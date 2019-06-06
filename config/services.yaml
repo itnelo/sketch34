@@ -30,13 +30,22 @@ services:
     # please note that last definitions always *replace* previous ones
 
     app.news_repository:
-        class: Doctrine\ORM\EntityRepository
+        class: App\Entity\Repository\BaseEntityRepository
         factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
             - 'App\Entity\NewsRecord'
 
-    app.news_controller:
-        class: App\Controller\NewsController
+    # first
+    app.news_list_controller:
+        class: App\Controller\NewsListController
+        public: true
+        arguments:
+            - '@templating'
+            - '@app.news_repository'
+
+    # second
+    app.news_show_controller:
+        class: App\Controller\NewsShowController
         public: true
         arguments:
             - '@templating'

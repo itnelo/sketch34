@@ -8,13 +8,13 @@
 index:
     path: /
     defaults:
-        _controller: app.news_controller:list
+        _controller: app.news_list_controller:list
     methods:
         - GET
 
 news_show:
     path: /news/{slug}/
     defaults:
-        _controller: app.news_controller:show
+        _controller: app.news_show_controller:show
     methods:
         - GET

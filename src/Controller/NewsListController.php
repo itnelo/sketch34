@@ -9,9 +9,9 @@ use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * News controller.
+ * News list controller.
  */
-class NewsController
+class NewsListController
 {
     /**
      * Template engine
@@ -28,7 +28,7 @@ class NewsController
     private $newsRepository;
 
     /**
-     * NewsController constructor.
+     * NewsListController constructor.
      *
      * @param EngineInterface  $templateEngine Template engine
      * @param EntityRepository $newsRepository News repository
@@ -50,23 +50,6 @@ class NewsController
         $content = $this->templateEngine->render('News/list.html.twig', ['news' => $news]);
 
         $response = new Response($content);
-
-        return $response;
-    }
-
-    /**
-     * Renders a target news record
-     *
-     * @param NewsRecord $newsRecord News record
-     *
-     * @return Response
-     */
-    // @ParamConverter(name="newsEntry", converter="doctrine.orm")
-    public function show(/*NewsRecord $newsRecord*/): Response
-    {
-//        $content = $this->templateEngine->render('@App/News/show.html.twig', ['newsRecord' => $newsRecord]);
-
-        $response = new Response('');
 
         return $response;
     }

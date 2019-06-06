@@ -4,3 +4,17 @@
 #index:
 #    path: /
 #    defaults: { _controller: 'App\Controller\DefaultController::index' }
+
+index:
+    path: /
+    defaults:
+        _controller: test.app.news_controller:list
+    methods:
+        - GET
+
+news_show:
+    path: /news/{slug}/
+    defaults:
+        _controller: test.app.news_controller:show
+    methods:
+        - GET

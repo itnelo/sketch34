@@ -50,6 +50,7 @@ class NewsShowController
      *
      * @ParamConverter(name="newsRecord", converter="doctrine.orm", options={"mapping"={"slug": "title"}})
      */
+    // slug is just a title here. but you can use Sluggable thing if you want so)
     public function show(NewsRecord $newsRecord): Response
     {
         $content = $this->templateEngine->render('News/_item.html.twig', ['newsRecord' => $newsRecord]);

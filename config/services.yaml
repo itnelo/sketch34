@@ -31,7 +31,7 @@ services:
 
     app.news_repository:
         class: App\Entity\Repository\NewsRecordRepository
-        factory: ['@doctrine.orm.sanity_entity_manager', getRepository]
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
             - 'App\Entity\NewsRecord'
 

@@ -33,10 +33,10 @@ class NewsController
      * @param EngineInterface  $templateEngine Template engine
      * @param EntityRepository $newsRepository News repository
      */
-    public function __construct(EngineInterface $templateEngine, EntityRepository $newsRepository)
+    public function __construct(/*EngineInterface $templateEngine, EntityRepository $newsRepository*/)
     {
-        $this->templateEngine = $templateEngine;
-        $this->newsRepository = $newsRepository;
+        //$this->templateEngine = $templateEngine;
+        //$this->newsRepository = $newsRepository;
     }
 
     /**

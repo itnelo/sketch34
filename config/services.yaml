@@ -41,3 +41,10 @@ services:
         arguments:
             - '@templating'
             - '@app.news_repository'
+
+    app.command.news.add:
+        class: App\Command\News\AddCommand
+        arguments:
+            - '@app.news_repository'
+        tags:
+            - { name: 'console.command', command: 'app:news:add' }
